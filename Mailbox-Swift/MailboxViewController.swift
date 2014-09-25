@@ -51,7 +51,6 @@ class MailboxViewController: UIViewController {
         } else if messagePan.state == UIGestureRecognizerState.Changed {
             
             messageImage.center.x = translation.x + messageImageCenter.x
-           // messageImage.center.y = translation.y + messageImageCenter.y
             
         } else if messagePan.state == UIGestureRecognizerState.Ended {
             
