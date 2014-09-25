@@ -13,20 +13,51 @@ class MailboxViewController: UIViewController {
     @IBOutlet weak var messageImage: UIImageView!
     @IBOutlet weak var searchImage: UIImageView!
     @IBOutlet weak var helpImage: UIImageView!
+    @IBOutlet weak var messageContainerView: UIView!
+    @IBOutlet weak var messageLaterIcon: UIImageView!
+    @IBOutlet weak var messageArchiveIcon: UIImageView!
+    
+    var messageImageCenter: CGPoint!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         feedScrollView.contentSize = CGSize(width: 320, height: feedScrollView.frame.size.height - searchImage.frame.height)
         feedScrollView.frame.size = view.frame.size
-        feedScrollView.frame.origin = view.frame.origin
-        feedScrollView.contentMode = UIViewContentMode.TopLeft
-
-        
-        
-//        feedScrollView.contentOffset = CGPoint(x: 40, y: )
+        feedScrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    
     }
 
+    
+    func animateContentInset() {
+        
+        UIView.animateWithDuration(2.0, animations: { () -> Void in
+            self.feedScrollView.contentInset = UIEdgeInsets(top: -86, left: 0, bottom: 0, right: 0)
+        })
+    }
+    
+    
+    @IBAction func onMessagePanGesture(messagePan: UIPanGestureRecognizer) {
+        
+        var location = messagePan.locationInView(view)
+        var translation = messagePan.translationInView(view)
+        var velocity = messagePan.velocityInView(view)
+        
+        if messagePan.state == UIGestureRecognizerState.Began {
+            
+            messageImageCenter = messageImage.center
+            
+        } else if messagePan.state == UIGestureRecognizerState.Changed {
+            
+            messageImage.center.x = translation.x + messageImageCenter.x
+           // messageImage.center.y = translation.y + messageImageCenter.y
+            
+        } else if messagePan.state == UIGestureRecognizerState.Ended {
+            
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }

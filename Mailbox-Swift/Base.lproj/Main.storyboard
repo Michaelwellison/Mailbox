@@ -32,10 +32,29 @@
                                         <rect key="frame" x="0.0" y="65" width="320" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message" id="k6K-By-bQv">
+                                    <view contentMode="scaleToFill" id="Ngr-cW-Xqc" userLabel="messageView">
                                         <rect key="frame" x="0.0" y="144" width="320" height="86"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="later_icon" id="lie-kS-ZtP">
+                                                <rect key="frame" x="287" y="30" width="25" height="25"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="archive_icon" id="z8E-0b-v6s">
+                                                <rect key="frame" x="8" y="30" width="25" height="25"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView autoresizesSubviews="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="message" id="k6K-By-bQv">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="86"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <gestureRecognizers/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="4W5-YY-CMm" appends="YES" id="EZ5-5I-hJa"/>
+                                                </connections>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.97254908084869385" green="0.97254908084869385" blue="0.97254908084869385" alpha="1" colorSpace="deviceRGB"/>
+                                    </view>
                                 </subviews>
                             </scrollView>
                             <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nav" id="jaE-V9-8Dm">
@@ -54,19 +73,29 @@
                     <connections>
                         <outlet property="feedScrollView" destination="nKW-jr-iJ1" id="kTx-pg-yBt"/>
                         <outlet property="helpImage" destination="vOh-0m-2j0" id="xmy-gg-Egd"/>
+                        <outlet property="messageArchiveIcon" destination="z8E-0b-v6s" id="T0v-6d-ZTl"/>
+                        <outlet property="messageContainerView" destination="Ngr-cW-Xqc" id="Xpr-1d-ztE"/>
                         <outlet property="messageImage" destination="k6K-By-bQv" id="il3-Dv-bWq"/>
+                        <outlet property="messageLaterIcon" destination="lie-kS-ZtP" id="wYR-uQ-1t6"/>
                         <outlet property="searchImage" destination="FTv-h5-aHj" id="0ad-Lf-b5d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="4W5-YY-CMm">
+                    <connections>
+                        <action selector="onMessagePanGesture:" destination="vXZ-lx-hvc" id="sQP-1v-INN"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="175" y="352"/>
         </scene>
     </scenes>
     <resources>
+        <image name="archive_icon" width="25" height="25"/>
         <image name="archive_nav_icon" width="25" height="20"/>
         <image name="feed" width="320" height="1202"/>
         <image name="help_label" width="320" height="37"/>
+        <image name="later_icon" width="25" height="25"/>
         <image name="menu" width="320" height="568"/>
         <image name="message" width="320" height="86"/>
         <image name="nav" width="320" height="65"/>
