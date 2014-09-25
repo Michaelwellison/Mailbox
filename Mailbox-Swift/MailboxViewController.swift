@@ -10,11 +10,20 @@ import UIKit
 
 class MailboxViewController: UIViewController {
     @IBOutlet weak var feedScrollView: UIScrollView!
+    @IBOutlet weak var messageImage: UIImageView!
+    @IBOutlet weak var searchImage: UIImageView!
+    @IBOutlet weak var helpImage: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        feedScrollView.contentSize = CGSize(width: 320, height: 1597)
+        feedScrollView.contentSize = CGSize(width: 320, height: feedScrollView.frame.size.height - searchImage.frame.height)
+        feedScrollView.frame.size = view.frame.size
+        feedScrollView.frame.origin = view.frame.origin
+        feedScrollView.contentMode = UIViewContentMode.TopLeft
+
+        
+        
 //        feedScrollView.contentOffset = CGPoint(x: 40, y: )
     }
 
