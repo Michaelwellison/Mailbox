@@ -16,6 +16,7 @@ class MailboxViewController: UIViewController {
     @IBOutlet weak var messageContainerView: UIView!
     @IBOutlet weak var messageLaterIcon: UIImageView!
     @IBOutlet weak var messageArchiveIcon: UIImageView!
+    @IBOutlet weak var feedImageView: UIImageView!
     
     var messageImageCenter: CGPoint!
     
@@ -23,10 +24,16 @@ class MailboxViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        feedScrollView.contentSize = CGSize(width: 320, height: feedScrollView.frame.size.height - searchImage.frame.height)
+        feedScrollView.contentSize = CGSize(width: 320, height: feedImageView.frame.size.height)
         feedScrollView.frame.size = view.frame.size
-        feedScrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+       // feedScrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+        feedScrollView.scrollEnabled = true
     
+//        feedScrollView.frame.size.height - searchImage.frame.height
+        
+        println(feedImageView.frame.size.height)
+        
+        
     }
 
     
@@ -57,19 +64,9 @@ class MailboxViewController: UIViewController {
         }
     }
     
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
