@@ -120,9 +120,14 @@ class MailboxViewController: UIViewController {
                         self.performSegueWithIdentifier("rescheduleSegue", sender: self)
                 })
             case 0...59:
-                println("not yet")
+    
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    self.messageImage.transform = CGAffineTransformMakeTranslation(-320, self.messageImage.frame.origin.y)
+                }, completion: { (Bool) -> Void in
+                    self.performSegueWithIdentifier("listSegue", sender: self)
+                })
             default:
-                println("not yet")
+                println("default view")
             }
         
         }

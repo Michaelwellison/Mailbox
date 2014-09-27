@@ -88,6 +88,7 @@
                         <outlet property="messageLaterIcon" destination="lie-kS-ZtP" id="wYR-uQ-1t6"/>
                         <outlet property="searchImage" destination="FTv-h5-aHj" id="0ad-Lf-b5d"/>
                         <segue destination="q9P-FK-lzR" kind="modal" identifier="rescheduleSegue" id="mcy-41-bEY"/>
+                        <segue destination="oWP-eE-LXt" kind="modal" identifier="listSegue" id="EUM-Kg-4bk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -98,6 +99,26 @@
                 </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="175" y="352"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="mY2-IZ-Tpq">
+            <objects>
+                <viewController id="oWP-eE-LXt" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cYY-1b-rmd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="list" id="PQm-2R-ubg">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Ql-P1-ZmO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="616" y="605"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="R2C-CT-g3D">
@@ -126,6 +147,7 @@
         <image name="feed" width="320" height="1202"/>
         <image name="help_label" width="320" height="37"/>
         <image name="later_icon" width="25" height="25"/>
+        <image name="list" width="320" height="568"/>
         <image name="menu" width="320" height="568"/>
         <image name="message" width="320" height="86"/>
         <image name="nav" width="320" height="65"/>
