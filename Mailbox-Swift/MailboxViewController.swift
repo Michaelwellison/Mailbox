@@ -80,6 +80,7 @@ class MailboxViewController: UIViewController {
             messageImageCenter = messageImage.center
             messageLaterIconCenter = messageLaterIcon.center
             messageLaterIcon.alpha = 0.0
+            messageArchiveIcon.alpha = 0.0
             
         } else if messagePan.state == UIGestureRecognizerState.Changed {
             
@@ -107,7 +108,22 @@ class MailboxViewController: UIViewController {
             }
             
         } else if messagePan.state == UIGestureRecognizerState.Ended {
-            
+            switch messageImageRightFrameEdge {
+            case 261...320:
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    self.messageImage.transform = CGAffineTransformMakeTranslation(-translation.x, self.messageImage.frame.origin.y)
+                })
+            case 60...260:
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    self.messageImage.transform = CGAffineTransformMakeTranslation(-320, self.messageImage.frame.origin.y)
+                    }, completion: {(Bool) -> Void in
+                        self.performSegueWithIdentifier("rescheduleSegue", sender: self)
+                })
+            case 0...59:
+                println("not yet")
+            default:
+                println("not yet")
+            }
         
         }
     }
