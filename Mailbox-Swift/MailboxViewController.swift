@@ -83,18 +83,18 @@ class MailboxViewController: UIViewController {
             
         } else if messagePan.state == UIGestureRecognizerState.Changed {
             
-            
-            
             messageImage.center.x = translation.x + messageImageCenter.x
             messageLaterIcon.alpha += 0.02
+            println(messageImage.frame.origin.x + messageImage.frame.width)
             
             if messageImage.frame.origin.x + messageImage.frame.width < 260 {
                 messageContainerView.backgroundColor = UIColor(red: 0.969, green: 0.816, blue: 0.278, alpha: 1)
                 
                 messageLaterIcon.center.x = messageImage.center.x + 183
-
-//                messageLaterIcon.image = UIImage(named: "list_icon")
                 
+            } else if messageImage.frame.origin.x + messageImage.frame.width < 60 {
+                messageLaterIcon.image = UIImage(named: "list_icon")
+                println("this message called")
             }
         
             
