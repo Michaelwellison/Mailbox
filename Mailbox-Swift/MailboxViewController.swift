@@ -9,6 +9,9 @@
 import UIKit
 
 class MailboxViewController: UIViewController {
+   
+    // MARK: Outlets
+    
     @IBOutlet weak var feedScrollView: UIScrollView!
     @IBOutlet weak var messageImage: UIImageView!
     @IBOutlet weak var searchImage: UIImageView!
@@ -17,25 +20,39 @@ class MailboxViewController: UIViewController {
     @IBOutlet weak var messageLaterIcon: UIImageView!
     @IBOutlet weak var messageArchiveIcon: UIImageView!
     @IBOutlet weak var feedImageView: UIImageView!
+    @IBOutlet weak var contentView: UIView!
+    
     
     var messageImageCenter: CGPoint!
     
+    // MARK: View Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        configureScrollView()
+        configureContentView()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
+    // MARK: Configuration
+    
+    func configureScrollView() {
         feedScrollView.contentSize = CGSize(width: 320, height: feedImageView.frame.size.height)
         feedScrollView.frame.size = view.frame.size
-       // feedScrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        feedScrollView.scrollEnabled = true
-    
-//        feedScrollView.frame.size.height - searchImage.frame.height
-        
-        println(feedImageView.frame.size.height)
-        
-        
+        feedScrollView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
 
+    func configureContentView() {
+        var edgeGesture = UIScreenEdgePanGestureRecognizer(target: self, action: "onEdgePan:")
+        edgeGesture.edges = UIRectEdge.Left
+        contentView.addGestureRecognizer(edgeGesture)
+    }
+    
+    // MARK: Functions
     
     func animateContentInset() {
         
@@ -44,6 +61,7 @@ class MailboxViewController: UIViewController {
         })
     }
     
+    // MARK: Actions
     
     @IBAction func onMessagePanGesture(messagePan: UIPanGestureRecognizer) {
         
@@ -64,9 +82,11 @@ class MailboxViewController: UIViewController {
         }
     }
     
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    @IBAction func onEdgePan(edgePan: UIScreenEdgePanGestureRecognizer) {
+        println("This worked")
     }
+    
+    
+    
 
 }

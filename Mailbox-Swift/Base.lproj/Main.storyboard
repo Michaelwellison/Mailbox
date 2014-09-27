@@ -16,9 +16,14 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <view contentMode="scaleToFill" id="3JX-sf-9fr" userLabel="contentView">
+                                <rect key="frame" x="0.0" y="-20" width="320" height="1472"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                             <scrollView autoresizesSubviews="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" bouncesZoom="NO" id="nKW-jr-iJ1">
-                                <rect key="frame" x="0.0" y="0.0" width="360" height="1472"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="1472"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <imageView autoresizesSubviews="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="feed" id="cfy-cD-YWH">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="1432"/>
@@ -71,6 +76,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="1432"/>
                     <connections>
+                        <outlet property="contentView" destination="3JX-sf-9fr" id="FfM-v1-6vV"/>
                         <outlet property="feedImageView" destination="cfy-cD-YWH" id="QHt-kL-j5q"/>
                         <outlet property="feedScrollView" destination="nKW-jr-iJ1" id="kTx-pg-yBt"/>
                         <outlet property="helpImage" destination="vOh-0m-2j0" id="xmy-gg-Egd"/>
