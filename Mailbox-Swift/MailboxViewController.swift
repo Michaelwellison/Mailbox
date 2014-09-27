@@ -23,6 +23,7 @@ class MailboxViewController: UIViewController {
     @IBOutlet weak var contentView: UIView!
     
     
+    var contentViewCenter: CGPoint!
     var messageImageCenter: CGPoint!
     
     // MARK: View Lifecycle
@@ -83,7 +84,22 @@ class MailboxViewController: UIViewController {
     }
     
     @IBAction func onEdgePan(edgePan: UIScreenEdgePanGestureRecognizer) {
-        println("This worked")
+        var location = edgePan.locationInView(view)
+        var translation = edgePan.translationInView(view)
+        var velocity = edgePan.velocityInView(view)
+        
+        if edgePan.state == UIGestureRecognizerState.Began {
+            
+            contentViewCenter = contentView.center
+            
+        } else if edgePan.state == UIGestureRecognizerState.Changed {
+            
+            contentView.center.x = translation.x + contentViewCenter.x
+            
+        } else if edgePan.state == UIGestureRecognizerState.Ended {
+            
+        }
+        
     }
     
     
