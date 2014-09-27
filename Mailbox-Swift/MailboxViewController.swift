@@ -27,14 +27,26 @@ class MailboxViewController: UIViewController {
     var contentViewCenter: CGPoint!
     var messageImageCenter: CGPoint!
     var messageLaterIconCenter: CGPoint!
+    var loadCount = 0
     
     // MARK: View Lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        println("view did load")
         
         configureScrollView()
         configureContentView()
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        if loadCount > 0 {
+            
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                self.messageContainerView.frame.origin.y -= self.messageContainerView.frame.height
+                self.feedImageView.frame.origin.y -= self.messageContainerView.frame.height
+            })
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -120,13 +132,17 @@ class MailboxViewController: UIViewController {
                     }, completion: {(Bool) -> Void in
                         self.performSegueWithIdentifier("rescheduleSegue", sender: self)
                 })
+                loadCount += 1
+                
             case 0...59:
     
                 UIView.animateWithDuration(0.5, animations: { () -> Void in
                     self.messageImage.transform = CGAffineTransformMakeTranslation(-320, self.messageImage.frame.origin.y)
+                    self.messageLaterIcon.transform = CGAffineTransformMakeTranslation(-300, 0)
                 }, completion: { (Bool) -> Void in
                     self.performSegueWithIdentifier("listSegue", sender: self)
                 })
+                loadCount += 1
             default:
                 println("default view")
             }
