@@ -97,9 +97,16 @@ class MailboxViewController: UIViewController {
             contentView.center.x = translation.x + contentViewCenter.x
             
         } else if edgePan.state == UIGestureRecognizerState.Ended {
-            
+            if location.x < 125 {
+                UIView.animateWithDuration(0.25, animations: { () -> Void in
+                    self.contentView.center.x = self.contentViewCenter.x
+                })
+            } else {
+                UIView.animateWithDuration(0.25, animations: { () -> Void in
+                    self.contentView.frame.origin.x = 280
+                })
+            }
         }
-        
     }
     
     
