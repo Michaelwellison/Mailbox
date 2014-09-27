@@ -49,6 +49,7 @@ class MailboxViewController: UIViewController {
 
     func configureContentView() {
         var edgeGesture = UIScreenEdgePanGestureRecognizer(target: self, action: "onEdgePan:")
+        
         edgeGesture.edges = UIRectEdge.Left
         contentView.addGestureRecognizer(edgeGesture)
     }
@@ -97,7 +98,7 @@ class MailboxViewController: UIViewController {
             contentView.center.x = translation.x + contentViewCenter.x
             
         } else if edgePan.state == UIGestureRecognizerState.Ended {
-            if location.x < 125 {
+            if velocity.x < 0 {
                 UIView.animateWithDuration(0.25, animations: { () -> Void in
                     self.contentView.center.x = self.contentViewCenter.x
                 })
