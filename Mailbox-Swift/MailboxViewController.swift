@@ -72,7 +72,7 @@ class MailboxViewController: UIViewController {
         var location = messagePan.locationInView(view)
         var translation = messagePan.translationInView(view)
         var velocity = messagePan.velocityInView(view)
-        
+        var messageImageRightFrameEdge = messageImage.center.x + messageImage.frame.width/2
         
         
         if messagePan.state == UIGestureRecognizerState.Began {
@@ -84,22 +84,31 @@ class MailboxViewController: UIViewController {
         } else if messagePan.state == UIGestureRecognizerState.Changed {
             
             messageImage.center.x = translation.x + messageImageCenter.x
-            messageLaterIcon.alpha += 0.02
-            println(messageImage.frame.origin.x + messageImage.frame.width)
             
-            if messageImage.frame.origin.x + messageImage.frame.width < 260 {
-                messageContainerView.backgroundColor = UIColor(red: 0.969, green: 0.816, blue: 0.278, alpha: 1)
-                
+            switch messageImageRightFrameEdge {
+            case 260...320:
+                println("test case 1 because right frame edge = \(messageImageRightFrameEdge)")
                 messageLaterIcon.center.x = messageImage.center.x + 183
-                
-            } else if messageImage.frame.origin.x + messageImage.frame.width < 60 {
+                messageLaterIcon.alpha += 0.025
+                println(messageLaterIcon.alpha)
+            case 60...259:
+                println("test case 2 because right frame edge = \(messageImageRightFrameEdge)")
+                messageContainerView.backgroundColor = UIColor(red: 0.969, green: 0.816, blue: 0.278, alpha: 1)
+                messageLaterIcon.center.x = messageImage.center.x + 183
+                messageLaterIcon.alpha = 1
+            case 0...59:
+                println("test case 3 because right frame edge = \(messageImageRightFrameEdge)")
                 messageLaterIcon.image = UIImage(named: "list_icon")
-                println("this message called")
+                messageContainerView.backgroundColor = UIColor(red: 0.824, green: 0.655, blue: 0.478, alpha: 1)
+                messageLaterIcon.center.x = messageImage.center.x + 183
+                messageLaterIcon.alpha = 1
+            default:
+                println("this is default")
             }
-        
             
         } else if messagePan.state == UIGestureRecognizerState.Ended {
             
+        
         }
     }
     
