@@ -22,9 +22,11 @@ class MailboxViewController: UIViewController {
     @IBOutlet weak var feedImageView: UIImageView!
     @IBOutlet weak var contentView: UIView!
     
+    // MARK: Variables
     
     var contentViewCenter: CGPoint!
     var messageImageCenter: CGPoint!
+    var messageLaterIconCenter: CGPoint!
     
     // MARK: View Lifecycle
 
@@ -71,19 +73,28 @@ class MailboxViewController: UIViewController {
         var translation = messagePan.translationInView(view)
         var velocity = messagePan.velocityInView(view)
         
+        
+        
         if messagePan.state == UIGestureRecognizerState.Began {
             
             messageImageCenter = messageImage.center
+            messageLaterIconCenter = messageLaterIcon.center
             messageLaterIcon.alpha = 0.0
             
         } else if messagePan.state == UIGestureRecognizerState.Changed {
             
+            
+            
             messageImage.center.x = translation.x + messageImageCenter.x
             messageLaterIcon.alpha += 0.02
             
-            if messageLaterIcon.frame.origin.x < 210 {
-                messageContainerView.backgroundColor = UIColor.yellowColor()
-                messageLaterIcon.image = UIImage(named: "list_icon")
+            if messageImage.frame.origin.x + messageImage.frame.width < 260 {
+                messageContainerView.backgroundColor = UIColor(red: 0.969, green: 0.816, blue: 0.278, alpha: 1)
+                
+                messageLaterIcon.center.x = messageImage.center.x + 183
+
+//                messageLaterIcon.image = UIImage(named: "list_icon")
+                
             }
         
             
