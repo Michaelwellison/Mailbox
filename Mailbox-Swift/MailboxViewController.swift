@@ -74,7 +74,6 @@ class MailboxViewController: UIViewController {
         var velocity = messagePan.velocityInView(view)
         var messageImageRightFrameEdge = messageImage.center.x + messageImage.frame.width/2
         
-        
         if messagePan.state == UIGestureRecognizerState.Began {
             
             messageImageCenter = messageImage.center
@@ -112,10 +111,12 @@ class MailboxViewController: UIViewController {
             case 261...320:
                 UIView.animateWithDuration(0.5, animations: { () -> Void in
                     self.messageImage.transform = CGAffineTransformMakeTranslation(-translation.x, self.messageImage.frame.origin.y)
+                    self.messageLaterIcon.transform = CGAffineTransformMakeTranslation(-translation.x, 0)
                 })
             case 60...260:
                 UIView.animateWithDuration(0.5, animations: { () -> Void in
                     self.messageImage.transform = CGAffineTransformMakeTranslation(-320, self.messageImage.frame.origin.y)
+                    self.messageLaterIcon.transform = CGAffineTransformMakeTranslation(-300, 0)
                     }, completion: {(Bool) -> Void in
                         self.performSegueWithIdentifier("rescheduleSegue", sender: self)
                 })
@@ -129,7 +130,6 @@ class MailboxViewController: UIViewController {
             default:
                 println("default view")
             }
-        
         }
     }
     

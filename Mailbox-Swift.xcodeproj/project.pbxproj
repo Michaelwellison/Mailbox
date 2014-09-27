@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D50961D319D75C92002C952D /* RescheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50961D219D75C92002C952D /* RescheduleViewController.swift */; };
 		D5DB41BD19D3DF9600972B62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5DB41BC19D3DF9600972B62 /* AppDelegate.swift */; };
 		D5DB41BF19D3DF9600972B62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5DB41BE19D3DF9600972B62 /* ViewController.swift */; };
 		D5DB41C219D3DF9600972B62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D5DB41C019D3DF9600972B62 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D50961D219D75C92002C952D /* RescheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RescheduleViewController.swift; sourceTree = "<group>"; };
 		D5DB41B719D3DF9600972B62 /* Mailbox-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mailbox-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5DB41BB19D3DF9600972B62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5DB41BC19D3DF9600972B62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				D5DB41BC19D3DF9600972B62 /* AppDelegate.swift */,
 				D5DB41BE19D3DF9600972B62 /* ViewController.swift */,
 				D5DB41C019D3DF9600972B62 /* Main.storyboard */,
+				D50961D219D75C92002C952D /* RescheduleViewController.swift */,
 				D5DB41DC19D3ECB600972B62 /* MailboxViewController.swift */,
 				D5DB41C319D3DF9600972B62 /* Images.xcassets */,
 				D5DB41C519D3DF9600972B62 /* LaunchScreen.xib */,
@@ -215,6 +218,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D50961D319D75C92002C952D /* RescheduleViewController.swift in Sources */,
 				D5DB41BF19D3DF9600972B62 /* ViewController.swift in Sources */,
 				D5DB41BD19D3DF9600972B62 /* AppDelegate.swift in Sources */,
 				D5DB41DD19D3ECB600972B62 /* MailboxViewController.swift in Sources */,
@@ -409,6 +413,7 @@
 				D5DB41D819D3DF9600972B62 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D5DB41D919D3DF9600972B62 /* Build configuration list for PBXNativeTarget "Mailbox-SwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +422,7 @@
 				D5DB41DB19D3DF9600972B62 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
