@@ -57,7 +57,7 @@
                                                         </connections>
                                                     </imageView>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.97254908084869385" green="0.97254908084869385" blue="0.97254908084869385" alpha="1" colorSpace="deviceRGB"/>
+                                                <color key="backgroundColor" red="0.76898207199546487" green="0.76468608276644001" blue="0.77327806122448983" alpha="1" colorSpace="calibratedRGB"/>
                                             </view>
                                         </subviews>
                                     </scrollView>

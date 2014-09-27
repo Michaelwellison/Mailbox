@@ -74,10 +74,14 @@ class MailboxViewController: UIViewController {
         if messagePan.state == UIGestureRecognizerState.Began {
             
             messageImageCenter = messageImage.center
+            messageLaterIcon.alpha = 0.0
             
         } else if messagePan.state == UIGestureRecognizerState.Changed {
             
             messageImage.center.x = translation.x + messageImageCenter.x
+            messageLaterIcon.alpha += 0.01
+            println(messageLaterIcon.alpha)
+        
             
         } else if messagePan.state == UIGestureRecognizerState.Ended {
             
