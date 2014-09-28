@@ -107,12 +107,12 @@ class MailboxViewController: UIViewController {
                 messageArchiveIcon.image = UIImage(named: "delete_icon")
                 messageContainerView.backgroundColor = UIColor(red: 0.867, green: 0.396, blue: 0.263, alpha: 1)
                 messageArchiveIcon.center.x = messageImage.frame.origin.x - 20
-                messageLaterIcon.alpha = 1
+                messageArchiveIcon.alpha = 1
             case 381...580:
                 println("test case 5 because right frame edge = \(messageImageRightFrameEdge)")
                 messageContainerView.backgroundColor = UIColor(red: 0.545, green: 0.812, blue: 0.392, alpha: 1)
                 messageArchiveIcon.center.x = messageImage.frame.origin.x - 20
-                messageLaterIcon.alpha = 1
+                messageArchiveIcon.alpha = 1
             case 321...380:
                 println("test case 4 because right frame edge = \(messageImageRightFrameEdge)")
                 messageArchiveIcon.center.x = messageImage.frame.origin.x - 20
