@@ -44,6 +44,7 @@ class MailboxViewController: UIViewController {
         if loadCount > 0 {
             
             UIView.animateWithDuration(0.5, animations: { () -> Void in
+                self.messageContainerView.backgroundColor = UIColor(red: 196/255, green: 195/255, blue: 197/197, alpha: 1)
                 self.messageContainerView.frame.origin.y -= self.messageContainerView.frame.height
                 self.feedImageView.frame.origin.y -= self.messageContainerView.frame.height
             })
@@ -100,6 +101,23 @@ class MailboxViewController: UIViewController {
             messageImage.center.x = translation.x + messageImageCenter.x
             
             switch messageImageRightFrameEdge {
+            
+            case 581...640:
+                println("test case 6 because right frame edge = \(messageImageRightFrameEdge)")
+                messageArchiveIcon.image = UIImage(named: "delete_icon")
+                messageContainerView.backgroundColor = UIColor(red: 0.867, green: 0.396, blue: 0.263, alpha: 1)
+                messageArchiveIcon.center.x = messageImage.frame.origin.x - 20
+                messageLaterIcon.alpha = 1
+            case 381...580:
+                println("test case 5 because right frame edge = \(messageImageRightFrameEdge)")
+                messageContainerView.backgroundColor = UIColor(red: 0.545, green: 0.812, blue: 0.392, alpha: 1)
+                messageArchiveIcon.center.x = messageImage.frame.origin.x - 20
+                messageLaterIcon.alpha = 1
+            case 321...380:
+                println("test case 4 because right frame edge = \(messageImageRightFrameEdge)")
+                messageArchiveIcon.center.x = messageImage.frame.origin.x - 20
+                messageArchiveIcon.alpha += 0.025
+                println(messageLaterIcon.alpha)
             case 260...320:
                 println("test case 1 because right frame edge = \(messageImageRightFrameEdge)")
                 messageLaterIcon.center.x = messageImage.center.x + 183
@@ -122,10 +140,46 @@ class MailboxViewController: UIViewController {
             
         } else if messagePan.state == UIGestureRecognizerState.Ended {
             switch messageImageRightFrameEdge {
+            case 581...640:
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    self.messageImage.transform = CGAffineTransformMakeTranslation(320, self.messageImage.frame.origin.y)
+                    self.messageArchiveIcon.transform = CGAffineTransformMakeTranslation(320, 0)
+                    }, completion: { (Bool) -> Void in
+                        
+                        UIView.animateWithDuration(0.5, animations: { () -> Void in
+                            self.messageContainerView.backgroundColor = UIColor(red: 0.918, green: 0.922, blue: 0.925, alpha: 1)
+                            self.messageContainerView.frame.origin.y -= self.messageContainerView.frame.height
+                            self.feedImageView.frame.origin.y -= self.messageContainerView.frame.height
+                        })
+                        self.loadCount += 1
+                })
+            case 381...580:
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    self.messageImage.transform = CGAffineTransformMakeTranslation(320, self.messageImage.frame.origin.y)
+                    self.messageArchiveIcon.transform = CGAffineTransformMakeTranslation(320, 0)
+                }, completion: { (Bool) -> Void in
+ 
+                        UIView.animateWithDuration(0.5, animations: { () -> Void in
+                            self.messageContainerView.backgroundColor = UIColor(red: 0.918, green: 0.922, blue: 0.925, alpha: 1)
+                            self.messageContainerView.frame.origin.y -= self.messageContainerView.frame.height
+                            self.feedImageView.frame.origin.y -= self.messageContainerView.frame.height
+                        })
+                    self.loadCount += 1
+                })
+                
+            case 321...380:
+                UIView.animateWithDuration(0.5, animations: { () -> Void in
+                    self.messageImage.frame = CGRectMake(0, self.messageImage.frame.origin.y, self.messageImage.frame.width, self.messageImage.frame.height)
+                    self.messageLaterIcon.frame = CGRectMake(messageImageRightFrameEdge + 20, self.messageLaterIcon.frame.origin.y, self.messageLaterIcon.frame.width, self.messageLaterIcon.frame.height)
+                    self.messageArchiveIcon.frame = CGRectMake(self.messageImage.frame.origin.x - 20, self.messageArchiveIcon.frame.origin.y, self.messageArchiveIcon.frame.width, self.messageArchiveIcon.frame.height)
+                }, completion: nil)
             case 261...320:
                 UIView.animateWithDuration(0.5, animations: { () -> Void in
                     self.messageImage.frame = CGRectMake(0, self.messageImage.frame.origin.y, self.messageImage.frame.width, self.messageImage.frame.height)
-                    self.messageLaterIcon.transform = CGAffineTransformMakeTranslation(-translation.x, 0)
+                    self.messageLaterIcon.frame = CGRectMake(messageImageRightFrameEdge + 20, self.messageLaterIcon.frame.origin.y, self.messageLaterIcon.frame.width, self.messageLaterIcon.frame.height)
+                    
+                    
+//                    self.messageLaterIcon.transform = CGAffineTransformMakeTranslation(-translation.x, 0)
                     println("translation.x = \(translation.x) -translation.x = \(-translation.x)")
                 })
             case 60...260:
