@@ -28,6 +28,7 @@ class MailboxViewController: UIViewController {
     var messageImageCenter: CGPoint!
     var messageLaterIconCenter: CGPoint!
     var loadCount = 0
+    var messageImageOrigin: CGPoint!
     
     // MARK: View Lifecycle
 
@@ -85,6 +86,7 @@ class MailboxViewController: UIViewController {
         var translation = messagePan.translationInView(view)
         var velocity = messagePan.velocityInView(view)
         var messageImageRightFrameEdge = messageImage.center.x + messageImage.frame.width/2
+        var messageImageOrigin = messageImage.frame.origin.x
         
         if messagePan.state == UIGestureRecognizerState.Began {
             
@@ -122,8 +124,9 @@ class MailboxViewController: UIViewController {
             switch messageImageRightFrameEdge {
             case 261...320:
                 UIView.animateWithDuration(0.5, animations: { () -> Void in
-                    self.messageImage.transform = CGAffineTransformMakeTranslation(-translation.x, self.messageImage.frame.origin.y)
+                    self.messageImage.frame = CGRectMake(0, self.messageImage.frame.origin.y, self.messageImage.frame.width, self.messageImage.frame.height)
                     self.messageLaterIcon.transform = CGAffineTransformMakeTranslation(-translation.x, 0)
+                    println("translation.x = \(translation.x) -translation.x = \(-translation.x)")
                 })
             case 60...260:
                 UIView.animateWithDuration(0.5, animations: { () -> Void in
