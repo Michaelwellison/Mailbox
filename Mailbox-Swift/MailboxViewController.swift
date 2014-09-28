@@ -44,7 +44,7 @@ class MailboxViewController: UIViewController {
         if loadCount > 0 {
             
             UIView.animateWithDuration(0.5, animations: { () -> Void in
-                self.messageContainerView.backgroundColor = UIColor(red: 196/255, green: 195/255, blue: 197/197, alpha: 1)
+                self.messageContainerView.backgroundColor = UIColor(red: 0.918, green: 0.922, blue: 0.925, alpha: 1)
                 self.messageContainerView.frame.origin.y -= self.messageContainerView.frame.height
                 self.feedImageView.frame.origin.y -= self.messageContainerView.frame.height
             })
@@ -117,12 +117,12 @@ class MailboxViewController: UIViewController {
                 println("test case 4 because right frame edge = \(messageImageRightFrameEdge)")
                 messageArchiveIcon.center.x = messageImage.frame.origin.x - 20
                 messageArchiveIcon.alpha += 0.025
-                println(messageLaterIcon.alpha)
+                self.messageContainerView.backgroundColor = UIColor(red: 0.918, green: 0.922, blue: 0.925, alpha: 1)
             case 260...320:
                 println("test case 1 because right frame edge = \(messageImageRightFrameEdge)")
                 messageLaterIcon.center.x = messageImage.center.x + 183
                 messageLaterIcon.alpha += 0.025
-                println(messageLaterIcon.alpha)
+                self.messageContainerView.backgroundColor = UIColor(red: 0.918, green: 0.922, blue: 0.925, alpha: 1)
             case 60...259:
                 println("test case 2 because right frame edge = \(messageImageRightFrameEdge)")
                 messageContainerView.backgroundColor = UIColor(red: 0.969, green: 0.816, blue: 0.278, alpha: 1)
