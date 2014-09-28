@@ -65,6 +65,16 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HY9-c8-bWa">
+                                        <rect key="frame" x="276" y="26" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="kLw-70-ueY" kind="modal" id="ybZ-uJ-vzp"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -125,6 +135,36 @@
             </objects>
             <point key="canvasLocation" x="616" y="605"/>
         </scene>
+        <!--Compose View Controller-->
+        <scene sceneID="mkQ-hh-WeI">
+            <objects>
+                <viewController id="kLw-70-ueY" customClass="ComposeViewController" customModule="Mailbox_Swift" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wBo-BM-HEh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="compose_image" id="EPw-cm-Gjo">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZN7-v3-7B8">
+                                <rect key="frame" x="2" y="28" width="66" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="onCancelButton:" destination="kLw-70-ueY" eventType="touchUpInside" id="ld3-Pd-sCy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3rw-E9-rVW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="610" y="-732"/>
+        </scene>
         <!--Reschedule View Controller-->
         <scene sceneID="R2C-CT-g3D">
             <objects>
@@ -157,6 +197,7 @@
     </scenes>
     <resources>
         <image name="archive_icon" width="25" height="25"/>
+        <image name="compose_image" width="320" height="568"/>
         <image name="feed" width="320" height="1202"/>
         <image name="help_label" width="320" height="37"/>
         <image name="later_icon" width="25" height="25"/>

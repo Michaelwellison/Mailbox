@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D50961D319D75C92002C952D /* RescheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D50961D219D75C92002C952D /* RescheduleViewController.swift */; };
+		D543A2ED19D8A29300D41903 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D543A2EC19D8A29300D41903 /* ComposeViewController.swift */; };
 		D552F74719D76772003D421C /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D552F74619D76772003D421C /* ListViewController.swift */; };
 		D5DB41BD19D3DF9600972B62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5DB41BC19D3DF9600972B62 /* AppDelegate.swift */; };
 		D5DB41BF19D3DF9600972B62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5DB41BE19D3DF9600972B62 /* ViewController.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		D50961D219D75C92002C952D /* RescheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RescheduleViewController.swift; sourceTree = "<group>"; };
+		D543A2EC19D8A29300D41903 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		D552F74619D76772003D421C /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		D5DB41B719D3DF9600972B62 /* Mailbox-Swift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mailbox-Swift.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5DB41BB19D3DF9600972B62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				D5DB41BC19D3DF9600972B62 /* AppDelegate.swift */,
 				D5DB41BE19D3DF9600972B62 /* ViewController.swift */,
 				D5DB41C019D3DF9600972B62 /* Main.storyboard */,
+				D543A2EC19D8A29300D41903 /* ComposeViewController.swift */,
 				D552F74619D76772003D421C /* ListViewController.swift */,
 				D50961D219D75C92002C952D /* RescheduleViewController.swift */,
 				D5DB41DC19D3ECB600972B62 /* MailboxViewController.swift */,
@@ -224,6 +227,7 @@
 				D50961D319D75C92002C952D /* RescheduleViewController.swift in Sources */,
 				D5DB41BF19D3DF9600972B62 /* ViewController.swift in Sources */,
 				D5DB41BD19D3DF9600972B62 /* AppDelegate.swift in Sources */,
+				D543A2ED19D8A29300D41903 /* ComposeViewController.swift in Sources */,
 				D552F74719D76772003D421C /* ListViewController.swift in Sources */,
 				D5DB41DD19D3ECB600972B62 /* MailboxViewController.swift in Sources */,
 			);
