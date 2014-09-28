@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MailboxViewController: UIViewController {
+class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
    
     // MARK: Outlets
     
@@ -29,6 +29,7 @@ class MailboxViewController: UIViewController {
     var messageLaterIconCenter: CGPoint!
     var loadCount = 0
     var messageImageOrigin: CGPoint!
+    var conditionForPanLeft: Bool = false
     
     // MARK: View Lifecycle
 
@@ -64,10 +65,20 @@ class MailboxViewController: UIViewController {
     }
 
     func configureContentView() {
-        var edgeGesture = UIScreenEdgePanGestureRecognizer(target: self, action: "onEdgePan:")
+        var leftEdgeGesture = UIScreenEdgePanGestureRecognizer(target: self, action: "onLeftEdgePan:")
+        leftEdgeGesture.edges = UIRectEdge.Left
+        contentView.addGestureRecognizer(leftEdgeGesture)
         
-        edgeGesture.edges = UIRectEdge.Left
-        contentView.addGestureRecognizer(edgeGesture)
+        var rightEdgeGesture = UIScreenEdgePanGestureRecognizer(target: self, action: "onRightEdgePan:")
+        rightEdgeGesture.edges = UIRectEdge.Right
+        contentView.addGestureRecognizer(rightEdgeGesture)
+    }
+    
+    // MARK: UI Gesture Recognizer Delegate
+    
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        
+        return true
     }
     
     // MARK: Functions
@@ -206,20 +217,20 @@ class MailboxViewController: UIViewController {
         }
     }
     
-    @IBAction func onEdgePan(edgePan: UIScreenEdgePanGestureRecognizer) {
-        var location = edgePan.locationInView(view)
-        var translation = edgePan.translationInView(view)
-        var velocity = edgePan.velocityInView(view)
+    @IBAction func onLeftEdgePan(leftEdgePan: UIScreenEdgePanGestureRecognizer) {
+        var location = leftEdgePan.locationInView(view)
+        var translation = leftEdgePan.translationInView(view)
+        var velocity = leftEdgePan.velocityInView(view)
         
-        if edgePan.state == UIGestureRecognizerState.Began {
+        if leftEdgePan.state == UIGestureRecognizerState.Began {
             
             contentViewCenter = contentView.center
             
-        } else if edgePan.state == UIGestureRecognizerState.Changed {
+        } else if leftEdgePan.state == UIGestureRecognizerState.Changed {
             
             contentView.center.x = translation.x + contentViewCenter.x
             
-        } else if edgePan.state == UIGestureRecognizerState.Ended {
+        } else if leftEdgePan.state == UIGestureRecognizerState.Ended {
             if velocity.x < 0 {
                 UIView.animateWithDuration(0.25, animations: { () -> Void in
                     self.contentView.center.x = self.contentViewCenter.x
@@ -228,11 +239,41 @@ class MailboxViewController: UIViewController {
                 UIView.animateWithDuration(0.25, animations: { () -> Void in
                     self.contentView.frame.origin.x = 280
                 })
+                conditionForPanLeft = true
             }
         }
     }
     
-    
-    
-
+    @IBAction func onRightEdgePan(rightEdgePan: UIScreenEdgePanGestureRecognizer) {
+        var translation = rightEdgePan.translationInView(view)
+        var velocity = rightEdgePan.velocityInView(view)
+        
+       
+        if conditionForPanLeft == true {
+            if rightEdgePan.state == UIGestureRecognizerState.Began {
+                
+                contentViewCenter = contentView.center
+                
+            } else if rightEdgePan.state == UIGestureRecognizerState.Changed {
+                
+                contentView.center.x = translation.x + contentViewCenter.x
+                
+                println(velocity.x)
+                
+            } else if rightEdgePan.state == UIGestureRecognizerState.Ended {
+                if velocity.x > 0 {
+                    UIView.animateWithDuration(0.25, animations: { () -> Void in
+                        self.contentView.center.x = self.contentViewCenter.x
+                    })
+                } else {
+                    UIView.animateWithDuration(0.25, animations: { () -> Void in
+                        self.contentView.frame.origin.x = 0
+                    })
+                    
+                    conditionForPanLeft = false
+                }
+            }
+        }
+        
+    }
 }
