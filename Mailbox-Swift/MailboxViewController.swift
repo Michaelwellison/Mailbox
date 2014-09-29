@@ -21,6 +21,8 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
     @IBOutlet weak var messageArchiveIcon: UIImageView!
     @IBOutlet weak var feedImageView: UIImageView!
     @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var laterBackgroundImage: UIImageView!
+    @IBOutlet weak var archiveBackgroundImage: UIImageView!
     
     // MARK: Variables
     
@@ -35,7 +37,6 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        println("view did load")
         
         configureScrollView()
         configureContentView()
@@ -72,6 +73,9 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
         var rightEdgeGesture = UIScreenEdgePanGestureRecognizer(target: self, action: "onRightEdgePan:")
         rightEdgeGesture.edges = UIRectEdge.Right
         contentView.addGestureRecognizer(rightEdgeGesture)
+        
+        laterBackgroundImage.hidden = true
+        archiveBackgroundImage.hidden = true
     }
     
     // MARK: UI Gesture Recognizer Delegate
@@ -276,4 +280,26 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
         }
         
     }
+    
+    @IBAction func onTapSegmentedControl(segmentedControl: UISegmentedControl) {
+        
+        switch segmentedControl.selectedSegmentIndex {
+        case 0:
+            segmentedControl.tintColor = UIColor(red: 0.969, green: 0.816, blue: 0.278, alpha: 1)
+            laterBackgroundImage.hidden = false
+            archiveBackgroundImage.hidden = true
+        case 1:
+            segmentedControl.tintColor = UIColor(red: 0.502, green: 0.765, blue: 0.871, alpha: 1)
+            laterBackgroundImage.hidden = true
+            archiveBackgroundImage.hidden = true
+        case 2:
+            segmentedControl.tintColor = UIColor(red: 0.545, green: 0.812, blue: 0.392, alpha: 1)
+            laterBackgroundImage.hidden = true
+            archiveBackgroundImage.hidden = false
+        default:
+            println("go home")
+        }
+        
+    }
+    
 }

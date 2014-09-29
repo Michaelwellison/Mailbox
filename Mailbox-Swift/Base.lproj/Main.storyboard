@@ -59,6 +59,14 @@
                                                 <rect key="frame" x="0.0" y="65" width="320" height="37"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="later_view_background" id="ZOv-bi-Fc6">
+                                                <rect key="frame" x="0.0" y="65" width="320" height="503"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="archive_image_background" id="Kjo-Iy-ikN">
+                                                <rect key="frame" x="0.0" y="65" width="320" height="503"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
                                         </subviews>
                                     </scrollView>
                                     <imageView autoresizesSubviews="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nav" id="jaE-V9-8Dm">
@@ -75,6 +83,19 @@
                                             <segue destination="kLw-70-ueY" kind="modal" id="ybZ-uJ-vzp"/>
                                         </connections>
                                     </button>
+                                    <segmentedControl opaque="NO" contentMode="top" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" id="fVF-Du-9M4">
+                                        <rect key="frame" x="61" y="26" width="197" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <segments>
+                                            <segment title="" image="later_nav_icon"/>
+                                            <segment title="" image="mail_nav_icon"/>
+                                            <segment title="" image="archive_nav_icon"/>
+                                        </segments>
+                                        <color key="tintColor" red="0.29411764705882354" green="0.76470588235294112" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="onTapSegmentedControl:" destination="vXZ-lx-hvc" eventType="valueChanged" id="zla-Jh-cJS"/>
+                                        </connections>
+                                    </segmentedControl>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -84,10 +105,12 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="320" height="1432"/>
                     <connections>
+                        <outlet property="archiveBackgroundImage" destination="Kjo-Iy-ikN" id="n5Z-lV-v2t"/>
                         <outlet property="contentView" destination="3JX-sf-9fr" id="FfM-v1-6vV"/>
                         <outlet property="feedImageView" destination="cfy-cD-YWH" id="QHt-kL-j5q"/>
                         <outlet property="feedScrollView" destination="nKW-jr-iJ1" id="kTx-pg-yBt"/>
                         <outlet property="helpImage" destination="vOh-0m-2j0" id="xmy-gg-Egd"/>
+                        <outlet property="laterBackgroundImage" destination="ZOv-bi-Fc6" id="kOX-g9-x0B"/>
                         <outlet property="messageArchiveIcon" destination="z8E-0b-v6s" id="T0v-6d-ZTl"/>
                         <outlet property="messageContainerView" destination="Ngr-cW-Xqc" id="Xpr-1d-ztE"/>
                         <outlet property="messageImage" destination="k6K-By-bQv" id="il3-Dv-bWq"/>
@@ -133,7 +156,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="616" y="605"/>
+            <point key="canvasLocation" x="1070" y="717"/>
         </scene>
         <!--Compose View Controller-->
         <scene sceneID="mkQ-hh-WeI">
@@ -163,7 +186,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3rw-E9-rVW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="610" y="-732"/>
+            <point key="canvasLocation" x="1070" y="-664"/>
         </scene>
         <!--Reschedule View Controller-->
         <scene sceneID="R2C-CT-g3D">
@@ -192,16 +215,21 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="610" y="-80"/>
+            <point key="canvasLocation" x="1070" y="58"/>
         </scene>
     </scenes>
     <resources>
         <image name="archive_icon" width="25" height="25"/>
+        <image name="archive_image_background" width="320" height="502"/>
+        <image name="archive_nav_icon" width="25" height="20"/>
         <image name="compose_image" width="320" height="568"/>
         <image name="feed" width="320" height="1202"/>
         <image name="help_label" width="320" height="37"/>
         <image name="later_icon" width="25" height="25"/>
+        <image name="later_nav_icon" width="25" height="20"/>
+        <image name="later_view_background" width="320" height="503"/>
         <image name="list" width="320" height="568"/>
+        <image name="mail_nav_icon" width="25" height="20"/>
         <image name="menu" width="320" height="568"/>
         <image name="message" width="320" height="86"/>
         <image name="nav" width="320" height="65"/>
