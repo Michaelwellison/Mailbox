@@ -305,13 +305,15 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
     override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent) {
         if loadCount > 0 {
             
+            self.messageImage.frame.origin.x = self.feedScrollView.frame.origin.x
             UIView.animateWithDuration(0.5, animations: { () -> Void in
                 self.messageContainerView.backgroundColor = UIColor(red: 0.918, green: 0.922, blue: 0.925, alpha: 1)
-                self.messageImage.frame = CGRectMake(0, 144, 320, 86)
+                self.messageImage.frame = CGRectMake(0, 0, 320, 86)
             
                 self.feedImageView.frame.origin.y += self.messageContainerView.frame.height
+                self.messageContainerView.frame.origin.y += self.messageContainerView.frame.height
             })
-            println(messageImage.frame.origin.y)
+            println(messageContainerView.frame.origin.y)
         } else {
         
             println("do nothing")
