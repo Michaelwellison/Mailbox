@@ -4,9 +4,10 @@ Mailbox-Swift
 High Fidelity Prototype of the Mailbox app in Swift
 
 
-Number of hours: 7
+Number of hours: 15.5
 
 Required user stories completed (All)
+
 Optional user stories completed (All)
 
 On dragging the message left...
