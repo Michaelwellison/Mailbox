@@ -91,7 +91,7 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
         })
     }
     
-    // MARK: Actions
+    // MARK: Gesture Actions
     
     @IBAction func onMessagePanGesture(messagePan: UIPanGestureRecognizer) {
         
@@ -146,6 +146,7 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
                 messageContainerView.backgroundColor = UIColor(red: 0.824, green: 0.655, blue: 0.478, alpha: 1)
                 messageLaterIcon.center.x = messageImage.center.x + 183
                 messageLaterIcon.alpha = 1
+                println(messageImage.center.x)
             default:
                 println("this is default")
             }
@@ -218,6 +219,8 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
         }
     }
     
+    // MARK: Edge Pan Actions
+    
     @IBAction func onLeftEdgePan(leftEdgePan: UIScreenEdgePanGestureRecognizer) {
         var location = leftEdgePan.locationInView(view)
         var translation = leftEdgePan.translationInView(view)
@@ -278,6 +281,8 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
         
     }
     
+    // MARK: Segmented Control Action
+    
     @IBAction func onTapSegmentedControl(segmentedControl: UISegmentedControl) {
         
         switch segmentedControl.selectedSegmentIndex {
@@ -308,10 +313,13 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
         
     }
     
+    // MARK: Shake Action
+    
     override func motionBegan(motion: UIEventSubtype, withEvent event: UIEvent) {
         if loadCount > 0 {
             
             self.messageImage.frame.origin.x = self.feedScrollView.frame.origin.x
+            
             UIView.animateWithDuration(0.5, animations: { () -> Void in
                 self.messageContainerView.backgroundColor = UIColor(red: 0.918, green: 0.922, blue: 0.925, alpha: 1)
                 self.messageImage.frame = CGRectMake(0, 0, 320, 86)
@@ -319,7 +327,9 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
                 self.feedImageView.frame.origin.y += self.messageContainerView.frame.height
                 self.messageContainerView.frame.origin.y += self.messageContainerView.frame.height
             })
-            println(messageContainerView.frame.origin.y)
+            
+            loadCount = 0
+            
         } else {
         
             println("do nothing")

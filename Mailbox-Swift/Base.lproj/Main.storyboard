@@ -156,7 +156,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1070" y="717"/>
+            <point key="canvasLocation" x="1070" y="1011"/>
         </scene>
         <!--Compose View Controller-->
         <scene sceneID="mkQ-hh-WeI">
@@ -186,7 +186,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3rw-E9-rVW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1070" y="-664"/>
+            <point key="canvasLocation" x="1070" y="-304"/>
         </scene>
         <!--Reschedule View Controller-->
         <scene sceneID="R2C-CT-g3D">
@@ -215,7 +215,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1070" y="58"/>
+            <point key="canvasLocation" x="1070" y="352"/>
         </scene>
     </scenes>
     <resources>
