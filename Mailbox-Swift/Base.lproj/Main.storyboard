@@ -60,11 +60,11 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="later_view_background" id="ZOv-bi-Fc6">
-                                                <rect key="frame" x="0.0" y="65" width="320" height="503"/>
+                                                <rect key="frame" x="-320" y="65" width="320" height="503"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="archive_image_background" id="Kjo-Iy-ikN">
-                                                <rect key="frame" x="0.0" y="65" width="320" height="503"/>
+                                                <rect key="frame" x="320" y="144" width="320" height="503"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                         </subviews>

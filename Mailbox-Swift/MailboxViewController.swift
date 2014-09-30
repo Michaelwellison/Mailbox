@@ -73,9 +73,6 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
         var rightEdgeGesture = UIScreenEdgePanGestureRecognizer(target: self, action: "onRightEdgePan:")
         rightEdgeGesture.edges = UIRectEdge.Right
         contentView.addGestureRecognizer(rightEdgeGesture)
-        
-        laterBackgroundImage.hidden = true
-        archiveBackgroundImage.hidden = true
     }
     
     // MARK: UI Gesture Recognizer Delegate
@@ -286,16 +283,25 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
         switch segmentedControl.selectedSegmentIndex {
         case 0:
             segmentedControl.tintColor = UIColor(red: 0.969, green: 0.816, blue: 0.278, alpha: 1)
-            laterBackgroundImage.hidden = false
-            archiveBackgroundImage.hidden = true
+
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                self.laterBackgroundImage.transform = CGAffineTransformMakeTranslation(self.laterBackgroundImage.frame.width, 0)
+                self.archiveBackgroundImage.transform = CGAffineTransformMakeTranslation(self.archiveBackgroundImage.frame.width, 0)
+            })
         case 1:
             segmentedControl.tintColor = UIColor(red: 0.502, green: 0.765, blue: 0.871, alpha: 1)
-            laterBackgroundImage.hidden = true
-            archiveBackgroundImage.hidden = true
+
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                self.laterBackgroundImage.transform = CGAffineTransformMakeTranslation(-self.laterBackgroundImage.frame.width, 0)
+                self.archiveBackgroundImage.transform = CGAffineTransformMakeTranslation(self.archiveBackgroundImage.frame.width, 0)
+            })
         case 2:
             segmentedControl.tintColor = UIColor(red: 0.545, green: 0.812, blue: 0.392, alpha: 1)
-            laterBackgroundImage.hidden = true
-            archiveBackgroundImage.hidden = false
+
+            UIView.animateWithDuration(0.5, animations: { () -> Void in
+                self.archiveBackgroundImage.transform = CGAffineTransformMakeTranslation(-self.archiveBackgroundImage.frame.width, 0)
+                self.laterBackgroundImage.transform = CGAffineTransformMakeTranslation(-self.laterBackgroundImage.frame.width, 0)
+            })
         default:
             println("go home")
         }
