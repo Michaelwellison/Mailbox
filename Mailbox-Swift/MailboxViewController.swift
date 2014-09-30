@@ -122,6 +122,7 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
                 messageArchiveIcon.alpha = 1
             case 381...580:
                 println("test case 5 because right frame edge = \(messageImageRightFrameEdge)")
+                messageArchiveIcon.image = UIImage(named: "archive_icon")
                 messageContainerView.backgroundColor = UIColor(red: 0.545, green: 0.812, blue: 0.392, alpha: 1)
                 messageArchiveIcon.center.x = messageImage.frame.origin.x - 20
                 messageArchiveIcon.alpha = 1
@@ -137,6 +138,7 @@ class MailboxViewController: UIViewController, UIGestureRecognizerDelegate {
                 self.messageContainerView.backgroundColor = UIColor(red: 0.918, green: 0.922, blue: 0.925, alpha: 1)
             case 60...259:
                 println("test case 2 because right frame edge = \(messageImageRightFrameEdge)")
+                messageLaterIcon.image = UIImage(named: "later_icon")
                 messageContainerView.backgroundColor = UIColor(red: 0.969, green: 0.816, blue: 0.278, alpha: 1)
                 messageLaterIcon.center.x = messageImage.center.x + 183
                 messageLaterIcon.alpha = 1
